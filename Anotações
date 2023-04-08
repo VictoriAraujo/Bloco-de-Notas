@@ -1,0 +1,62 @@
+import java.time.LocalDate;
+import java.util.Scanner;
+public class Anotacoes {
+    private int ID;
+    private String texto;
+    private LocalDate data;
+    boolean removida;
+    public Anotacoes(String texto) {
+        super();
+        this.ID = ID;
+        this.texto = texto;
+        data = LocalDate.now();
+        removida = false;
+    }
+    Scanner scan = new Scanner(System.in);
+
+    public void editar(){
+        System.out.print("O texto que você editará : ");
+        System.out.println(texto);
+        System.out.println("Digite o texto desejado : ");
+        texto = scan.nextLine();
+    }
+    public void setID(int numeroIndice){
+
+        ID = numeroIndice;
+    }
+    public int getID(){
+
+        return ID;
+    }
+    public boolean temTexto(String texto){
+        if(this.texto.contains(texto)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public String getTexto(){
+        return texto;
+    }
+    public LocalDate getData() {
+
+        return data;
+    }
+    public void setData(LocalDate data) {
+        this.data = data; }
+
+    public void remover() {
+        removida = true;
+    }
+    public boolean foiRemovida(){
+        return removida;
+    }
+
+    @Override
+    public String toString() {
+
+        return "Número: " + ID + "\nAnotação: " + texto + "\nData: " + getData();
+    }
+
+}
