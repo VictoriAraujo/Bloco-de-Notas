@@ -1,11 +1,5 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.io.BufferedWriter;
 
 
 public class BlocoDeNotas {
@@ -15,46 +9,15 @@ public class BlocoDeNotas {
         super();
         anotacao =  new ArrayList<Anotacoes>();
     }
-    File arquivo = new File("C:\\Users\\maria\\OneDrive\\Documentos\\Arquivos java\\anotacoes.txt");
-
-    public BlocoDeNotas(String nomeArquivo) throws FileNotFoundException {
-        File arquivo = new File(nomeArquivo);
-        Scanner scanner = new Scanner(arquivo);
-        while (scanner.hasNextLine()) {
-            String anotacao = scanner.nextLine();
-            adicionar(anotacao);
-        }
-        scanner.close();
-    }
-    public void salvarEmArquivo(File arquivo) throws IOException {
-        FileWriter fw = new FileWriter(arquivo);
-        BufferedWriter bw = new BufferedWriter(fw);
-
-        for (Anotacoes nota : anotacao) {
-            bw.write(nota.getTexto());
-            bw.newLine();
-        }
-
-        bw.close();
-        fw.close();
-    }
-
 
     public void adicionar(String texto) {
         Anotacoes novaAnotacao = new Anotacoes(texto);
-        novaAnotacao.setID(anotacao.indexOf(novaAnotacao));
         anotacao.add(novaAnotacao);
+        novaAnotacao.setID(anotacao.indexOf(novaAnotacao));
+
     }
 
 
-
-    public Anotacoes buscar(int id) {
-        if (id >= 0 && id < anotacao.size()) {
-            return anotacao.get(id);
-        } else {
-            return null;
-        }
-    }
     public void buscar(String buscarTexto){
 
         for(int i = 0; i<anotacao.size(); i++){
