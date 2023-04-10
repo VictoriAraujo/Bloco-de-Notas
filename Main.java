@@ -1,9 +1,7 @@
-import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         final int ADICIONAR = 1;
         final int MOSTRAR = 2;
@@ -14,7 +12,6 @@ public class Main {
         int opcao;
         boolean sair = false;
         BlocoDeNotas blocoNotas = new BlocoDeNotas();
-        File arquivo = new File("C:\\Users\\maria\\OneDrive\\Documentos\\Arquivos java\\anotacoes.txt");
 
         do {
             final String prompt = ("Digite a opção desejada: \n" + ADICIONAR + " - Adicionar: \n" + MOSTRAR + " - Mostrar as anotações: \n"
@@ -24,6 +21,7 @@ public class Main {
             scan.nextLine();
             switch (opcao) {
                 case ADICIONAR:
+                    
                     System.out.println("Digite o que deseja adicionar ao bloco de notas: ");
                     String texto = scan.nextLine();
                     blocoNotas.adicionar(texto);
@@ -31,9 +29,11 @@ public class Main {
                     break;
 
                 case MOSTRAR:
+
                     blocoNotas.verAnotacoes();
                     break;
                 case EDITAR:
+
                     blocoNotas.verAnotacoes();
                     System.out.print("Digite o numero da anotação que você deseja editar: ");
                     int editarID = scan.nextInt();
@@ -41,6 +41,7 @@ public class Main {
                     blocoNotas.editar(editarID);
                     break;
                 case APAGAR:
+
                     blocoNotas.verAnotacoes();
                     System.out.print("Digite o numero da anotação que você deseja apagar: ");
                     int ID = scan.nextInt();
@@ -48,13 +49,13 @@ public class Main {
                     blocoNotas.remover(ID);
                     break;
                 case BUSCAR:
+
                     System.out.print("Digite o que você deseja buscar: ");
                     String textoParaBuscar = scan.nextLine();
                     blocoNotas.buscar(textoParaBuscar);
                     break;
                 case SAIR:
-                    System.out.println("Anotações salvas");
-                    blocoNotas.salvarEmArquivo(arquivo);
+
                     System.out.println("Operação finalizada!");
                     sair = true;
                     break;
