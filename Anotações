@@ -13,7 +13,6 @@ public class Anotacoes {
         removida = false;
     }
     Scanner scan = new Scanner(System.in);
-
     public void editar(){
         System.out.print("O texto que você editará : ");
         System.out.println(texto);
